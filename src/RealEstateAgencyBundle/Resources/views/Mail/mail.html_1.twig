@@ -1,0 +1,169 @@
+{% extends "OffreBundle::layout.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <!--  <?php include '../layout/col-left.php'; ?>  -->
+            <div class="span3">
+
+                {% block lefNav %}
+
+                    {% if is_granted ('IS_AUTHENTICATED_FULLY') %}
+
+                        {% include "OffreBundle::UserConnected.html.twig" %}
+
+                    {% else %}    
+
+                        <div class="well">
+                            <ul class="nav nav-list">
+                                <li>
+                                    <a href="{{path('fos_user_security_login')}}">Se connecter</a>
+                                </li>
+                                <li>
+                                    <a href="{{path('fos_user_registration_register')}}">S'inscrire</a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endif %}
+
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="well">
+
+                            <p>Espace Administrateur </p>
+                            <ul class="nav nav-list">
+
+
+                                <div class="nav-collapse collapse">
+                                    <li><a class="brand" href="{{path('offre_List')}}">Liste Offre</a>  <li>
+                                    <li><a class="brand" href="{{path('offre')}}">Gestion Offre</a>  <li>
+                                    <li><a class="brand" href="{{path('commentaire')}}">Gestion Commentaire</a>  <li>
+                                    <li><a class="brand" href="{{path('ville')}}">Gestion Ville</a>  <li>
+                                    <li><a class="brand" href="{{path('client')}}">Gestion Client</a>  <li>
+                                    <li><a class="brand" href="{{path('esprit_liste_gerants')}}">Gestion Gerant</a>  <li>
+                                    <li><a class="brand" href="{{path('mail2Client')}}">Contacter Client</a>  <li>
+                                </div>  
+
+
+                            </ul>
+                        </div>
+                    {% endif %}
+
+
+                    <div class="well">
+
+                        <p>Recherche Avance</p>
+
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-search"></i>
+                                Type Proprietaire 
+                                <b class="caret"></b></a>
+                            </a>
+                            <div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+
+                                <form action="{{path('rechercheNatureOffre')}}" method="post">
+                                    <input  class="pull-right" type="checkbox" name="typeProprietaire[]" value="maison">maison<br/>
+                                    <input  class="pull-right" type="checkbox" name="typeProprietaire[]" value="appartement">appartement<br/>
+                                    <input  class="pull-right" type="checkbox" name="typeProprietaire[]" value="terrain">terrain<br/><br/>
+                                    <input  class="btn btn-success" class="pull-right" type="submit" value="recherhe">
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-search"></i>
+                                nature Offre
+                                <b class="caret"></b></a>
+                            </a>
+                            <div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+
+                                <form action="{{path('rechercheNatureOffre')}}" method="post">
+                                    <input class="pull-right" type="checkbox" name="natureOffre[]" value="vente">vent<br/>
+                                    <input class="pull-right" type="checkbox" name="natureOffre[]" value="location">location<br/>
+                                    <input class="pull-right" type="checkbox" name="natureOffre[]" value="colocation">colocation<br/><br/>
+                                    <input class="btn btn-success" class="pull-right"  type="submit" value="recherhe">
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-search"></i>
+                                adresse Offre
+                                <b class="caret"></b></a>
+                            </a>
+                            <div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+
+                                <form action="{{path('rechercheNatureOffre')}}" method="post">
+                                    <input class="pull-right" type="checkbox" name="adresseOffre[]" value="bizerte">Bizerte<br/>
+                                    <input class="pull-right" type="checkbox" name="adresseOffre[]" value="tunis">Tunis<br/>
+                                    <input class="pull-right" type="checkbox" name="adresseOffre[]" value="sousse">Sousse<br/><br/>
+                                    <input class="pull-right" type="checkbox" name="adresseOffre[]" value="ariana">Ariana<br/><br/>
+                                    <input class="btn btn-success" class="pull-right"  type="submit" value="recherhe">
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                {% endblock %}             
+            </div>
+
+
+            <div class="span9">
+
+
+                <div class="span8">
+                    <ul class="thumbnails">
+                        
+
+                       Votre demande a été envoyée avec succès  
+    <h2> Envoyer un autre email ? </h2>
+    <ul >
+        <li>
+            <a href="mailto:esprit.3a15.realestateagency@gmail.com">
+               Contacter Nous
+            </a>
+              
+        </li>
+        <li>
+            <a href="{{ path('mail2Client') }}">
+               Contacter un Client
+            </a>
+        </li>
+    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <?php include '../layout/footer.php'; ?> 
+{% endblock %}                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

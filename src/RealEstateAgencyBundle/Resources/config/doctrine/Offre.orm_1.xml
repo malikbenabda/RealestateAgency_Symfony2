@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Esprit\RealEstateAgencyBundle\Entity\Offre" table="offre">
+    <id name="idoffre" type="integer" column="idOffre">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="adresseoffre" type="string" column="adresseOffre" length="30" nullable="true"/>
+    <field name="prixoffre" type="float" column="prixOffre" nullable="true"/>
+    <field name="descriptionoffre" type="string" column="descriptionOffre" length="30" nullable="true"/>
+    <field name="dateajout" type="string" column="dateAjout" length="30" nullable="true"/>
+    <field name="superficieoffre" type="integer" column="superficieOffre" nullable="true"/>
+    <field name="photooffre" type="string" column="photoOffre" length="30" nullable="true"/>
+    <field name="croquis" type="integer" column="croquis" nullable="true"/>
+    <field name="typeproprietaire" type="string" column="typeProprietaire" length="30" nullable="true"/>
+    <field name="natureoffre" type="string" column="natureOffre" length="30" nullable="true"/>
+    <field name="listcommentaire" type="integer" column="listCommentaire" nullable="true"/>
+    <field name="note" type="float" column="note" nullable="true"/>
+  </entity>
+</doctrine-mapping>

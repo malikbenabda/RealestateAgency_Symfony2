@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+{% extends "OffreBundle::layout.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <!--  <?php include '../layout/col-left.php'; ?>  -->
+            
+
+
+
+
+
+
+            <div class="span9">
+
+
+                <div class="span8">
+                    <ul class="thumbnails"></ul>
+
+
+                    <a href="{{path('homepage')}}">
+                        <video width="120%" height="auto" controls="controls" autoplay="true">
+                            <source src="{{asset('vid/EDREA.mp4')}}"   type="video/mp4">
+                        </video>
+                    </a>
+
+
+                    <ul>
+
+                        <a class="btn btn-success" href="{{ path('homepage') }}">
+                            Proceder au site
+                        </a>
+                        <br/><br/>
+
+
+
+
+
+                    </ul>
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <?php include '../layout/footer.php'; ?> 
+{% endblock %}     

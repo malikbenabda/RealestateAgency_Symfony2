@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Gerant list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Datenaissance</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('gerant_show', { 'id': entity.id }) }}">{{ entity.login }}</a></td>
+                <td>{{ entity.password }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.datenaissance|date("d/m/Y") }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.telephone }}</td>
+                
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('gerant_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('gerant_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('gerant_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

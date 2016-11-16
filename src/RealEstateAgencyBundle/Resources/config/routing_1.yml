@@ -1,0 +1,19 @@
+esprit_real_estate_agency_homepage:
+    pattern:  /hello
+    defaults: { _controller: EspritRealEstateAgencyBundle:Default:index }
+EspritRealEstateAgencyBundle_client:
+        resource: "@EspritRealEstateAgencyBundle/Resources/config/routing/client.yml"
+        prefix:   /client
+
+my_app_mail_succ:
+    path:     /succ
+    defaults: { _controller: EspritRealEstateAgencyBundle:Mail:index }
+#only emails from REA(admin) -> Client Work for the moment     
+mail2Client:
+    path:     /mail2Client
+    defaults: { _controller: EspritRealEstateAgencyBundle:Mail:Admin2Client }
+my_app_mail_sendpage2C:
+    path:  /mailsent
+    defaults: { _controller: EspritRealEstateAgencyBundle:Mail:sendMail2C } 
+
+   

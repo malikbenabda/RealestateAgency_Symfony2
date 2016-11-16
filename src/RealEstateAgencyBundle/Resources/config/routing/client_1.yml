@@ -1,0 +1,30 @@
+client:
+    pattern:  /
+    defaults: { _controller: "EspritRealEstateAgencyBundle:Client:index" }
+
+client_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EspritRealEstateAgencyBundle:Client:show" }
+
+client_new:
+    pattern:  /new
+    defaults: { _controller: "EspritRealEstateAgencyBundle:Client:new" }
+
+client_create:
+    pattern:  /create
+    defaults: { _controller: "EspritRealEstateAgencyBundle:Client:create" }
+    requirements: { _method: post }
+
+client_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EspritRealEstateAgencyBundle:Client:edit" }
+
+client_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EspritRealEstateAgencyBundle:Client:update" }
+    requirements: { _method: post|put }
+
+client_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EspritRealEstateAgencyBundle:Client:delete" }
+    requirements: { _method: post|delete }
